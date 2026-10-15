@@ -1,395 +1,769 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-SG">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Morning Cafe – a warm and cosy neighbourhood cafe in Tiong Bahru, Bishan and Tampines.">
-<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="images/favicon.png" type="image/png">
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Morning Cafe">
+<meta property="og:description" content="Good Food. Good Coffee. Good Neighbours. A warm and cosy neighbourhood cafe in Tiong Bahru, Bishan and Tampines.">
+<meta property="og:image" content="img/shop.jpg">
 <title>Morning Cafe</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Morning Cafe – a warm and cosy neighbourhood cafe in Tiong Bahru, Bishan and Tampines.">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=Caveat:wght@600&display=swap">
 <style>
-/* Layout: sticky header · split hero (copy + interior photo) · about with portrait · menu as five category bands with item grids · outlet cards · contact split · footer */
+[hidden]{display:none!important}
+/* Layout: a printed cafe menu card on warm paper — cream sections for reading, espresso bands that frame the dark photography; dotted leaders link each dish to its price. */
 :root{
-  --bg:#FBF5EC; --paper:#F3E7D6; --card:#FFFDF9; --fg:#3E2619; --muted:#76594A;
-  --green:#5F7451; --terra:#C9714B; --line:#E4D3BD;
-  --cup:#4A2E1F; --steam:#FBF5EC; --on-accent:#FFFDF9;
-  --display:"Fraunces",Georgia,"Times New Roman",serif;
-  --body:"Nunito","Segoe UI",system-ui,sans-serif;
-  --r:14px; --header:68px;
+  --paper:#F7F0E4;      /* warm cream page */
+  --card:#FFFAF2;       /* menu card */
+  --ink:#2E1F17;        /* espresso text */
+  --muted:#6E5C4F;
+  --coffee:#5A3825;     /* brand brown */
+  --green:#5F7351;      /* muted green */
+  --terra:#B4623F;      /* soft terracotta */
+  --gold:#B88A45;       /* echoes the logo's gold */
+  --band:#22170F;       /* espresso band */
+  --band-ink:#F4E9D8;
+  --line:#E3D6C3;
+  --btn-ink:#FFF8EE;
+  --shadow:0 1px 2px rgba(46,31,23,.06),0 8px 24px rgba(46,31,23,.08);
+  --f-display:"Young Serif",Georgia,"Times New Roman",serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+  --max:1160px;
+  --head-h:68px;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#1D1511; --paper:#271C16; --card:#2D211A; --fg:#F4E8DA; --muted:#C7B19E;
-  --green:#9CB088; --terra:#E28D67; --line:#41322A; --cup:#F4E8DA; --steam:#2D211A; --on-accent:#1D1511; color-scheme:dark}}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#1B130E;--card:#251A13;--ink:#F3E8D8;--muted:#C4B19C;--coffee:#E2BC8C;--green:#A3B791;--terra:#E08E6B;--gold:#D9AE68;--band:#120C08;--band-ink:#F4E9D8;--line:#3A2B21;--btn-ink:#1B130E;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#1D1511; --paper:#271C16; --card:#2D211A; --fg:#F4E8DA; --muted:#C7B19E;
-  --green:#9CB088; --terra:#E28D67; --line:#41322A; --cup:#F4E8DA; --steam:#2D211A; --on-accent:#1D1511; color-scheme:dark}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6}
-.wrap{max-width:1160px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.15;text-wrap:balance;margin:0}
-p{margin:0}
+  --paper:#1B130E;--card:#251A13;--ink:#F3E8D8;--muted:#C4B19C;--coffee:#E2BC8C;--green:#A3B791;--terra:#E08E6B;--gold:#D9AE68;--band:#120C08;--band-ink:#F4E9D8;--line:#3A2B21;--btn-ink:#1B130E;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + 12px)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:6px}
-section[id]{scroll-margin-top:calc(var(--header) + 12px)}
-.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:400;line-height:1.15;margin:0;text-wrap:balance;color:var(--ink)}
+p{margin:0}
+:focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}}
+.eyebrow{font:600 .78rem/1.2 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.eyebrow.small{font-size:.7rem}
+.section{padding-block:clamp(56px,8vw,104px)}
+.sec-head{display:grid;gap:10px;max-width:44rem;margin-bottom:clamp(28px,4vw,44px)}
+.sec-head h2{font-size:clamp(2rem,4.2vw,3rem)}
+.sec-head p.lead{color:var(--muted);font-size:1.1rem}
+.hand{font-family:var(--f-hand);font-weight:600;color:var(--terra);font-size:1.5rem;line-height:1}
 
-/* header */
-.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:var(--header)}
-.lockup{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
-.mark{width:42px;height:42px;flex:none}
-.word{font-family:var(--display);font-weight:700;font-size:1.35rem;line-height:1;display:flex;flex-direction:column}
-.word small{font-family:var(--body);font-size:.62rem;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--green);margin-top:4px}
-.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
-.nav a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem}
-.nav a:hover{background:var(--paper)}
-.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--fg);border-radius:10px;padding:8px 12px;font:inherit;font-weight:700;cursor:pointer}
-@media (max-width:820px){
-  .menu-btn{display:block}
-  .nav{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line)}
-  .nav ul{flex-direction:column;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
-  .nav a{padding:12px 14px;font-size:1.05rem}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 22px;border-radius:999px;font:600 1rem/1 var(--f-body);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background-color .15s ease,color .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--coffee);color:var(--btn-ink)}
+.btn-primary:hover{background:var(--terra)}
+.btn-ghost{border-color:var(--coffee);color:var(--coffee);background:transparent}
+.btn-ghost:hover{background:var(--coffee);color:var(--btn-ink)}
+
+/* Header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
+.head-row{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--head-h)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand img{width:46px;height:46px;border-radius:50%;box-shadow:0 0 0 1.5px var(--line)}
+.brand-name{font-family:var(--f-display);font-size:1.35rem;line-height:1;color:var(--coffee);white-space:nowrap}
+.nav{display:flex;gap:4px}
+.nav a{padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:500;font-size:.98rem;color:var(--ink)}
+.nav a:hover{background:color-mix(in srgb,var(--coffee) 10%,transparent)}
+.nav a[aria-current="true"]{background:var(--coffee);color:var(--btn-ink)}
+.menu-toggle{display:none;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:1.5px solid var(--coffee);background:transparent;color:var(--coffee);font:600 .95rem var(--f-body);cursor:pointer}
+.menu-toggle svg{width:20px;height:20px}
+@media (max-width:880px){
+  .menu-toggle{display:inline-flex}
+  .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:2px;background:var(--paper);border-bottom:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));box-shadow:var(--shadow)}
+  .nav:not(.open){display:none}
+  .nav a{padding:14px 16px;font-size:1.05rem}
 }
 
-/* buttons */
-.btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;font-weight:800;text-decoration:none;border:2px solid var(--fg);font-size:1rem;cursor:pointer;font-family:var(--body)}
-.btn.primary{background:var(--fg);color:var(--bg)}
-.btn.primary:hover{background:var(--terra);border-color:var(--terra);color:var(--on-accent)}
-.btn.ghost{background:transparent;color:var(--fg)}
-.btn.ghost:hover{background:var(--paper)}
-
-/* hero */
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(32px,6vw,72px)}
+/* Hero */
+.hero{padding-block:clamp(32px,6vw,72px) clamp(40px,6vw,72px)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);align-items:center}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.02fr 1fr}}
 .hero-copy{display:grid;gap:20px;min-width:0}
-.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);letter-spacing:-.01em}
-.hero h1 em{font-style:italic;font-weight:500;color:var(--terra)}
-.hero .lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
-.hoods{display:flex;flex-wrap:wrap;gap:8px 18px;font-weight:700;font-size:.9rem;color:var(--muted)}
-.hoods span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:8px;vertical-align:middle}
-.hero-photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:7/5;max-width:100%;background:var(--paper)}
-.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.tag{position:absolute;left:16px;bottom:16px;background:var(--bg);color:var(--fg);padding:10px 16px;border-radius:12px;font-family:var(--display);font-weight:500;font-size:1rem;box-shadow:0 6px 20px rgb(0 0 0/.18)}
-@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero-photo{aspect-ratio:4/3;order:-1}}
+.hero h1{font-size:clamp(2.3rem,4.6vw,3.6rem);color:var(--coffee)}
+.hero h1 em{font-style:normal;color:var(--terra)}
+.hero .intro{font-size:1.15rem;color:var(--muted);max-width:34rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.outlet-chips{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.95rem;color:var(--muted)}
+.outlet-chips a{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:var(--card);color:var(--ink)}
+.outlet-chips a:hover{border-color:var(--green)}
+.outlet-chips svg{width:14px;height:14px;color:var(--green)}
+.hero-photo{position:relative;margin:0}
+.hero-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:22px;box-shadow:var(--shadow)}
+.hero-photo .note{position:absolute;left:-10px;bottom:-18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 16px;box-shadow:var(--shadow);transform:rotate(-2deg)}
+@media (max-width:899px){.hero-photo .note{left:12px}}
 
-/* about */
-.band{background:var(--paper)}
-.about .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(48px,7vw,88px)}
-.about-photo{border-radius:22px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--card)}
-.about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
-.about-copy{display:grid;gap:18px;min-width:0}
-.about h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
-.about-copy p{max-width:60ch;font-size:1.08rem}
-.facts{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-.fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:0}
-.fact b{display:block;font-family:var(--display);font-size:1.5rem;line-height:1.1}
-.fact span{font-size:.88rem;color:var(--muted);font-weight:700}
-@media (max-width:820px){.about .wrap{grid-template-columns:1fr}.about-photo{aspect-ratio:4/3}}
-
-/* menu */
-.menu-intro{padding-block:clamp(48px,7vw,80px) 8px;display:grid;gap:12px}
-.menu-intro h2{font-size:clamp(2rem,4vw,3rem)}
-.menu-intro p{color:var(--muted);max-width:60ch}
-.chips{background:var(--bg)}
-.chips .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
-.chip{display:inline-flex;align-items:center;gap:8px;flex:none;padding:8px 16px;border:1.5px solid var(--line);border-radius:999px;text-decoration:none;font-weight:800;font-size:.92rem;background:var(--card)}
-.chip svg{width:20px;height:20px;color:var(--green)}
-.chip:hover,.chip.on{border-color:var(--fg);background:var(--fg);color:var(--bg)}
-.chip:hover svg,.chip.on svg{color:var(--bg)}
-.cats{display:grid;gap:clamp(48px,6vw,72px);padding-block:40px clamp(56px,8vw,96px)}
-.cat{display:grid;gap:24px}
-.cat-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:end}
-.cat-cover{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:21/8;max-width:100%;background:var(--paper)}
-.cat-cover img{position:relative;width:100%;height:100%;object-fit:cover;display:block}
-.cat-text{display:grid;gap:8px;padding-bottom:6px;min-width:0}
-.cat-text h3{font-size:clamp(1.8rem,3.4vw,2.6rem)}
-.cat-text p{color:var(--muted)}
-@media (max-width:820px){.cat-head{grid-template-columns:1fr}.cat-cover{aspect-ratio:16/7}}
-.items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-@media (max-width:980px){.items{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:540px){.items{grid-template-columns:1fr}}
-.item{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
-.thumb{position:relative;aspect-ratio:4/3;max-width:100%;background:var(--paper)}
-.thumb img{position:relative;width:100%;height:100%;object-fit:cover;display:block}
-.ph{position:absolute;inset:0;margin:auto;width:56px;height:56px;color:var(--green);opacity:.55}
-.cat-cover .ph{width:72px;height:72px}
-.item-body{display:grid;gap:6px;padding:16px 18px 20px}
-.item-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.item h4{font-size:1.15rem;min-width:0}
-.price{font-weight:800;color:var(--terra);font-variant-numeric:tabular-nums;white-space:nowrap}
-.item p{font-size:.95rem;color:var(--muted)}
-
-/* locations */
-.locs .wrap{padding-block:clamp(48px,7vw,88px);display:grid;gap:28px}
-.sec-head{display:grid;gap:10px}
-.sec-head h2{font-size:clamp(2rem,4vw,3rem)}
-.sec-head p{color:var(--muted);max-width:60ch}
-.outlets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-@media (max-width:900px){.outlets{grid-template-columns:1fr}}
-.outlet{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:10px;align-content:start;min-width:0}
-.outlet h3{font-size:1.4rem}
-.addr{font-weight:600}
-.hours{border-collapse:collapse;width:100%;margin-top:6px;font-variant-numeric:tabular-nums;font-size:.95rem}
-.hours caption{text-align:left;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-bottom:4px}
-.hours th,.hours td{padding:8px 0;border-top:1px dashed var(--line);text-align:left;vertical-align:top}
-.hours th{font-weight:700;padding-right:12px}
-.hours td{text-align:right}
-
-/* contact */
-.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px);padding-block:clamp(48px,7vw,88px);align-items:start}
-@media (max-width:820px){.contact .wrap{grid-template-columns:1fr}}
-.contact-info{display:grid;gap:18px;min-width:0}
-.contact-info h2{font-size:clamp(2rem,4vw,3rem)}
-.contact-info>p{color:var(--muted);max-width:52ch}
-.ways{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.ways li{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:0}
-.ways .k{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block}
-.ways .v{font-weight:700;overflow-wrap:anywhere;user-select:all}
-.copy{flex:none;background:none;border:1.5px solid var(--line);color:var(--fg);border-radius:999px;padding:6px 12px;font:inherit;font-size:.85rem;font-weight:800;cursor:pointer}
-.copy:hover{border-color:var(--fg)}
-form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;gap:16px;min-width:0}
-form h3{font-size:1.5rem}
-label{display:grid;gap:6px;font-weight:700;font-size:.95rem}
-input,textarea,select{font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;width:100%;box-sizing:border-box}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--terra)}
-textarea{min-height:130px;resize:vertical}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:540px){.row2{grid-template-columns:1fr}}
-.notice{background:var(--paper);border-radius:10px;padding:12px 14px;font-weight:600}
-
-/* footer */
-footer{background:var(--paper);border-top:1px solid var(--line)}
-footer .wrap{padding-block:40px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
-@media (max-width:820px){footer .wrap{grid-template-columns:1fr}}
-footer h4{font-family:var(--body);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-footer p,footer li{font-size:.95rem}
-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
-footer ul a{text-decoration:none;font-weight:700}
-footer ul a:hover{text-decoration:underline}
-.legal{border-top:1px solid var(--line)}
-.legal .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding-block:16px;font-size:.85rem;color:var(--muted)}
-
-/* home gallery, in the order the owner chose */
-.gallery .wrap{display:grid;gap:clamp(12px,1.6vw,20px);padding-block:8px clamp(48px,7vw,80px)}
-.pair{display:flex;gap:clamp(12px,1.6vw,20px)}
-.pair figure{flex:1;margin:0;min-width:0}
-figure img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:18px;max-width:100%;background:var(--paper)}
-.shop{margin:0}
-.shop img{aspect-ratio:3/2;border-radius:22px}
-.shop img{aspect-ratio:auto;object-fit:contain}
-.gallery-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:8px}
-.gallery-cta p{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:500}
-@media (max-width:600px){.pair{flex-direction:column}.pair figure{flex:none!important}}
-.logo-card{display:grid;place-items:center;background:var(--bg)!important;border:1px solid var(--line)}
-.logo-card img{width:78%!important;height:auto!important;object-fit:contain!important}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo-card{background:#FBF5EC!important}}
-:root[data-theme="dark"] .logo-card{background:#FBF5EC!important}
-
-/* price list: one table, grouped by category */
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.cats{padding-block:8px clamp(56px,8vw,96px)}
-.pricelist{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.prices{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-.prices thead th{background:var(--fg);color:var(--bg);text-align:left;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:12px 20px}
-.prices tbody{scroll-margin-top:calc(var(--header) + 12px)}
-.prices tr.group th{background:var(--paper);padding:18px 20px 12px;border-top:1px solid var(--line);text-align:left}
-.gname{display:block;font-family:var(--display);font-size:1.45rem;font-weight:700}
-.gblurb{display:block;font-weight:600;color:var(--muted);font-size:.92rem}
-.prices tbody tr:not(.group) th,.prices tbody tr:not(.group) td{padding:12px 20px;border-top:1px solid var(--line);vertical-align:top;text-align:left}
-.iname{font-weight:800}
-.prices td.desc-col{color:var(--muted);font-size:.95rem}
-.prices .p-col{text-align:right!important;white-space:nowrap;font-weight:800;color:var(--terra);width:1%}
-.prices thead .p-col{color:var(--bg)}
-.prices tbody tr:not(.group):hover{background:color-mix(in srgb,var(--paper) 55%,transparent)}
-.idesc.m{display:none}
-@media (max-width:640px){
-  .desc-col{display:none}
-  .idesc.m{display:block;font-weight:500;color:var(--muted);font-size:.92rem;margin-top:2px}
-  .prices thead th,.prices tr.group th,.prices tbody tr:not(.group) th,.prices tbody tr:not(.group) td{padding-left:14px;padding-right:14px}
+/* Gallery band */
+.band{background:var(--band);color:var(--band-ink)}
+.band h2,.band h3{color:var(--band-ink)}
+.band .eyebrow{color:var(--gold)}
+.band .lead{color:color-mix(in srgb,var(--band-ink) 75%,transparent)}
+.gallery{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(150px,22vw,230px)}
+.gallery figure{position:relative;margin:0;border-radius:16px;overflow:hidden;background:#000}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;background:rgba(18,12,8,.78);color:#F4E9D8;font-size:.85rem;font-weight:600;padding:5px 11px;border-radius:999px}
+.g-main{grid-column:span 2;grid-row:span 2}
+@media (min-width:760px){
+  .gallery{grid-template-columns:repeat(4,1fr)}
+  .g-main{grid-column:1 / span 2;grid-row:1 / span 2}
 }
-.chips .wrap{flex-wrap:wrap;overflow:visible}
+
+/* About */
+.about-grid{display:grid;gap:clamp(28px,4vw,56px);align-items:center}
+@media (min-width:900px){.about-grid{grid-template-columns:1fr 1fr}}
+.about-photo{margin:0;position:relative}
+.about-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:22px;box-shadow:var(--shadow)}
+.about-copy{display:grid;gap:18px;min-width:0}
+.about-copy h2{font-size:clamp(2rem,4vw,2.8rem)}
+.about-copy p.body{max-width:36rem}
+.facts{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);margin-top:8px}
+.fact{flex:1 1 140px;padding:16px 16px 0 0;display:grid;gap:2px}
+.fact strong{font-family:var(--f-display);font-weight:400;font-size:1.9rem;color:var(--coffee);line-height:1.1}
+.fact span{font-size:.92rem;color:var(--muted)}
+
+/* Menu */
+.menu-sec{background:color-mix(in srgb,var(--coffee) 6%,var(--paper))}
+.cat-nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--head-h));z-index:20;background:color-mix(in srgb,var(--coffee) 6%,var(--paper));padding-block:10px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+.cat-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.cat-nav ul::-webkit-scrollbar{display:none}
+.cat-nav a{display:inline-block;white-space:nowrap;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);text-decoration:none;font-weight:600;font-size:.95rem}
+.cat-nav a:hover{border-color:var(--coffee)}
+.cat-nav a[aria-current="true"]{background:var(--green);border-color:var(--green);color:var(--btn-ink)}
+.menu-note{color:var(--muted);font-size:.95rem}
+.cats{display:grid;gap:clamp(28px,4vw,44px)}
+.cat{display:grid;gap:0;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+@media (min-width:900px){
+  .cat{grid-template-columns:5fr 7fr}
+  .cat.flip{grid-template-columns:7fr 5fr}
+  .cat.flip .cat-photo{order:2}
+}
+.cat-photo{margin:0;min-height:220px;background:#000}
+.cat-photo img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
+@media (min-width:900px){.cat-photo img{aspect-ratio:auto;min-height:100%}}
+#non-coffee .cat-photo img{object-position:center top}
+.cat-body{padding:clamp(22px,3.4vw,40px);display:grid;gap:6px;min-width:0;align-content:start}
+.cat-count{font:600 .74rem/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.cat-body h3{font-size:clamp(1.8rem,3.2vw,2.3rem);color:var(--coffee)}
+.cat-blurb{color:var(--muted);margin-bottom:12px}
+.items{list-style:none;margin:0;padding:0;display:grid}
+.item{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:14px 0;border-top:1px dashed var(--line);align-items:start}
+.item-icon{width:36px;height:36px;padding:5px;border-radius:10px;background:color-mix(in srgb,var(--green) 13%,transparent);color:var(--green);fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.item-text{min-width:0;display:grid;gap:3px}
+.item-head{display:flex;align-items:baseline;gap:8px}
+.item h4{font-family:var(--f-body);font-weight:700;font-size:1.05rem;line-height:1.3;min-width:0}
+.leader{flex:1;border-bottom:2px dotted color-mix(in srgb,var(--coffee) 35%,transparent);transform:translateY(-4px);min-width:16px}
+.price{font-weight:700;color:var(--terra);font-variant-numeric:tabular-nums;white-space:nowrap}
+.price .cur{font-size:.85em;margin-right:1px}
+.item p{color:var(--muted);font-size:.97rem;line-height:1.55}
+
+/* Locations */
+.outlets{display:grid;gap:18px}
+@media (min-width:800px){.outlets{grid-template-columns:repeat(3,1fr)}}
+.outlet{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:10px;align-content:start;box-shadow:var(--shadow);min-width:0}
+.outlet-top{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:26px}
+.outlet h3{font-size:1.45rem;color:var(--coffee)}
+.addr{color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hours{margin:0;display:grid;gap:6px}
+.hrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hrow dt{color:var(--muted)}
+.hrow dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
+.status{font:600 .78rem/1 var(--f-body);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.status.open{background:color-mix(in srgb,var(--green) 18%,transparent);color:var(--green)}
+.status.closed{background:color-mix(in srgb,var(--terra) 15%,transparent);color:var(--terra)}
+.loc-foot{margin-top:18px;color:var(--muted);font-size:.95rem}
+
+/* Contact */
+.contact-grid{display:grid;gap:clamp(28px,4vw,56px)}
+@media (min-width:900px){.contact-grid{grid-template-columns:1fr 1.1fr}}
+.contact-info{display:grid;gap:14px;align-content:start;min-width:0}
+.cline{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.cline svg{width:40px;height:40px;padding:9px;border-radius:12px;background:color-mix(in srgb,var(--terra) 13%,transparent);color:var(--terra);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cline .lbl{font:600 .72rem/1.2 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cline .val{font-weight:600;overflow-wrap:anywhere;user-select:all}
+.cline > div{min-width:0}
+.copy-btn{min-height:36px;padding:0 12px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:600 .85rem var(--f-body);cursor:pointer}
+.copy-btn:hover{border-color:var(--coffee)}
+form.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,32px);display:grid;gap:16px;box-shadow:var(--shadow)}
+.frow{display:grid;gap:16px}
+@media (min-width:560px){.frow{grid-template-columns:1fr 1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-weight:600;font-size:.95rem}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 25%,transparent)}
+.field .err{color:var(--terra);font-size:.88rem}
+.form-done{padding:14px 16px;border-radius:14px;background:color-mix(in srgb,var(--green) 15%,transparent);color:var(--ink)}
+
+/* Footer */
+.site-foot{background:var(--band);color:var(--band-ink);padding-block:48px 32px}
+.foot-grid{display:grid;gap:28px}
+@media (min-width:800px){.foot-grid{grid-template-columns:1.3fr 1fr 1fr 1fr}}
+.foot-brand{display:flex;gap:14px;align-items:center}
+.foot-brand img{width:96px;height:96px;border-radius:18px}
+.foot-brand strong{font-family:var(--f-display);font-weight:400;font-size:1.5rem;display:block}
+.site-foot h4{font-family:var(--f-body);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.site-foot a{text-decoration:none;color:var(--band-ink)}
+.site-foot a:hover{text-decoration:underline}
+.site-foot .muted{color:color-mix(in srgb,var(--band-ink) 70%,transparent)}
+.copyright{margin-top:36px;padding-top:20px;border-top:1px solid color-mix(in srgb,var(--band-ink) 18%,transparent);font-size:.9rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 </head>
 <body>
 
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<symbol id="i-cup" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20h26v6a13 13 0 0 1-26 0z"/><path d="M35 23h2a5 5 0 0 1 0 10h-3"/><path d="M6 42h34"/><path d="M18 8c-2 3 2 5 0 8M25 8c-2 3 2 5 0 8"/></g></symbol>
-<symbol id="i-glass" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h24l-3 28H15z"/><path d="M27 14l5-10h5"/><path d="M13.5 24h21"/></g></symbol>
-<symbol id="i-toast" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 40V22a8 8 0 0 1-2-5c0-5 6-9 13-9s13 4 13 9a8 8 0 0 1-2 5v18z"/><path d="M19 27h10"/></g></symbol>
-<symbol id="i-bowl" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24h36a18 18 0 0 1-36 0z"/><path d="M18 42h12"/><path d="M30 6 20 20M38 9 24 20"/></g></symbol>
-<symbol id="i-cake" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 40h36"/><path d="M8 40V26l30-12 2 0v26"/><path d="M8 32h32"/><path d="M34 14c0-3 3-4 3-7"/></g></symbol>
+  <symbol id="i-cup" viewBox="0 0 32 32"><path d="M6 12h17v6a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7z"/><path d="M23 14h2a3 3 0 0 1 0 6h-2.4"/><path d="M4 28h21"/><path d="M11 4c-1 1.5 1 2.5 0 4M16 4c-1 1.5 1 2.5 0 4"/></symbol><symbol id="i-iced" viewBox="0 0 32 32"><path d="M8 9h16l-2 19H10z"/><path d="M17 9l3-6h3"/><rect x="11" y="13" width="4" height="4" rx="1"/><rect x="16" y="17" width="4" height="4" rx="1"/></symbol><symbol id="i-glass" viewBox="0 0 32 32"><path d="M9 7h14l-1.5 21h-11z"/><path d="M9.5 14c3 1.5 10 1.5 13 0"/><path d="M19 7l2-4h3"/></symbol><symbol id="i-tea" viewBox="0 0 32 32"><path d="M5 13h18v5a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7z"/><path d="M23 15h2a3 3 0 0 1 0 6h-2.4"/><path d="M4 28h21"/><circle cx="20" cy="8" r="3.2"/><path d="M20 4.8v6.4M16.8 8h6.4"/></symbol><symbol id="i-toast" viewBox="0 0 32 32"><path d="M8 28V15a6 6 0 1 1 4-10.6A6 6 0 0 1 20 4.4 6 6 0 1 1 24 15v13z"/><path d="M12 19c2 1 6 1 8 0"/></symbol><symbol id="i-croissant" viewBox="0 0 32 32"><path d="M4 20c2-8 8-12 12-12s10 4 12 12c-3 1-5 0-6-1-2 3-4 4-6 4s-4-1-6-4c-1 1-3 2-6 1z"/><path d="M12 10.5l2 9M20 10.5l-2 9"/></symbol><symbol id="i-muffin" viewBox="0 0 32 32"><path d="M5 15c0-5 5-8 11-8s11 3 11 8z"/><path d="M5 15h22l-2 6H7z"/><path d="M7 21c2 4 16 4 18 0"/></symbol><symbol id="i-bowl" viewBox="0 0 32 32"><path d="M4 15h24a12 12 0 0 1-24 0z"/><path d="M10 15c0-3 2-5 4-5M15 15c0-4 3-6 6-6M21 15c0-2 1-3 3-3"/><path d="M11 27h10"/></symbol><symbol id="i-sandwich" viewBox="0 0 32 32"><path d="M4 22L16 6l12 16z"/><path d="M4 22h24v3H4z"/><path d="M8 17c2 1 4-1 6 0s4 1 6 0 4-1 4 0"/></symbol><symbol id="i-pasta" viewBox="0 0 32 32"><ellipse cx="16" cy="21" rx="13" ry="5"/><path d="M8 19c2-6 14-6 16 0"/><path d="M11 18c2-3 8-3 10 0M13 17c1-1.5 5-1.5 6 0"/><path d="M22 4l-4 12"/></symbol><symbol id="i-cake" viewBox="0 0 32 32"><path d="M4 27V17l20-8v18z"/><path d="M4 17h20"/><path d="M4 22h20"/><path d="M24 9l4 3v15h-4"/></symbol><symbol id="i-brownie" viewBox="0 0 32 32"><rect x="5" y="11" width="22" height="13" rx="2"/><path d="M5 16h22"/><circle cx="11" cy="20" r=".8"/><circle cx="18" cy="21" r=".8"/><circle cx="22" cy="19" r=".8"/></symbol><symbol id="i-dessertcup" viewBox="0 0 32 32"><path d="M8 6h16l-2 22H10z"/><path d="M8.7 13h14.6M9.3 19h13.4"/><path d="M12 9h.01M17 9h.01M20 9h.01"/></symbol><symbol id="i-tart" viewBox="0 0 32 32"><path d="M3 17h26l-3 7H6z"/><path d="M5 17c0-4 5-7 11-7s11 3 11 7"/><path d="M9 24v-7M16 24v-7M23 24v-7"/></symbol><symbol id="i-waffle" viewBox="0 0 32 32"><rect x="4" y="12" width="24" height="14" rx="3"/><path d="M10 12v14M16 12v14M22 12v14M4 19h24"/><path d="M12 12c0-4 3-7 6-7s5 3 4 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5z"/></symbol>
 </svg>
 
+<a class="sr-only" href="#menu">Skip to menu</a>
+
 <header class="site-head">
-  <div class="wrap">
-    <a href="#home" aria-label="Morning Cafe home" style="text-decoration:none"><span class="lockup"><svg class="mark" viewBox="140 64 232 232" aria-hidden="true"><circle cx="256" cy="168" r="64" fill="var(--terra)"/><g stroke="var(--terra)" stroke-width="10" stroke-linecap="round"><line x1="256" y1="74" x2="256" y2="92"/><line x1="178" y1="104" x2="191" y2="117"/><line x1="334" y1="104" x2="321" y2="117"/><line x1="150" y1="140" x2="166" y2="147"/><line x1="362" y1="140" x2="346" y2="147"/></g><path d="M232 150 c-12 -14 12 -24 0 -40 M268 150 c-12 -14 12 -24 0 -40" fill="none" stroke="var(--steam)" stroke-width="9" stroke-linecap="round"/><path d="M168 176 H344 V196 C344 240 310 268 256 268 C202 268 168 240 168 196 Z" fill="var(--cup)"/><path d="M340 192 C380 186 384 236 336 238" fill="none" stroke="var(--cup)" stroke-width="13" stroke-linecap="round"/><rect x="150" y="276" width="212" height="13" rx="6.5" fill="var(--green)"/></svg><span class="word">Morning<small>Cafe</small></span></span></a>
-    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="site-nav">Menu ☰</button>
-    <nav class="nav" id="site-nav" aria-label="Main">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#locations">Locations</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
+  <div class="wrap head-row">
+    <a class="brand" href="#home" aria-label="Morning Cafe home">
+      <img src="img/logo-mark.svg" alt="Morning Cafe logo" width="46" height="46">
+      <span class="brand-name">Morning Cafe</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+    <nav class="nav" id="siteNav" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#menu">Menu</a>
+      <a href="#locations">Locations</a>
+      <a href="#contact">Contact Us</a>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="hero" id="home">
-  <div class="wrap">
-    <div class="hero-copy">
-      <p class="eyebrow">Good Food. Good Coffee. Good Neighbours.</p>
-      <h1>Your Neighbourhood Cafe, Made for <em>Everyday Moments.</em></h1>
-      <p class="lead">Welcome to Morning Cafe, a warm and cosy neighbourhood spot where good coffee, comforting food and friendly service come together. Drop by for a quick breakfast, an easy lunch, an afternoon treat or simply a quiet cup of coffee.</p>
-      <div class="btns">
-        <a class="btn primary" href="#menu">View Our Menu</a>
-        <a class="btn ghost" href="#locations">Find an Outlet</a>
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Good Food. Good Coffee. Good Neighbours.</p>
+        <h1>Your Neighbourhood Cafe, Made for <em>Everyday Moments.</em></h1>
+        <p class="intro">Welcome to Morning Cafe, a warm and cosy neighbourhood spot where good coffee, comforting food and friendly service come together. Drop by for a quick breakfast, an easy lunch, an afternoon treat or simply a quiet cup of coffee.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#menu">View Our Menu</a>
+          <a class="btn btn-ghost" href="#locations">Find an Outlet</a>
+        </div>
+        <div class="outlet-chips" aria-label="Our outlets">
+          <a href="#locations"><svg aria-hidden="true"><use href="#i-pin"/></svg>Tiong Bahru</a>
+          <a href="#locations"><svg aria-hidden="true"><use href="#i-pin"/></svg>Bishan</a>
+          <a href="#locations"><svg aria-hidden="true"><use href="#i-pin"/></svg>Tampines</a>
+        </div>
       </div>
-      <p class="hoods" aria-label="Our outlets"><span>Tiong Bahru</span><span>Bishan</span><span>Tampines</span></p>
+      <figure class="hero-photo">
+        <img src="img/hero-barista.jpg" alt="Smiling Morning Cafe barista holding a cup of coffee at the counter" width="1400" height="933" fetchpriority="high">
+        <figcaption class="note"><span class="hand">Your usual? Coming right up!</span></figcaption>
+      </figure>
     </div>
-    <div class="hero-photo">
-      <img src="images/home-1-barista.jpg" alt="A smiling Morning Cafe barista holding a cup of coffee" style="object-position:40% 30%">
-    </div>
-  </div>
-</section>
+  </section>
 
-
-<section class="gallery" aria-label="A look inside Morning Cafe">
-  <div class="wrap">
-    <div class="pair">
-      <figure style="flex:1"><img src="images/home-2-latte-cappuccino.jpg" alt="A latte with heart art and a cappuccino in Morning Cafe cups" loading="lazy" style="aspect-ratio:1/1"></figure>
-      <figure style="flex:1.5"><img src="images/home-3-drinks-desserts.jpg" alt="Lattes, matcha and chocolate drinks, and desserts on the table" loading="lazy" style="aspect-ratio:3/2"></figure>
-    </div>
-    <div class="pair">
-      <figure><img src="images/home-4-noodles.jpg" alt="A bowl of chicken noodles with vegetables" loading="lazy"></figure>
-      <figure><img src="images/home-5-breakfast.jpg" alt="A breakfast plate of eggs, toast and salad with a latte" loading="lazy"></figure>
-    </div>
-    <div class="pair">
-      <figure><img src="images/home-6-sandwich.jpg" alt="A toasted tuna sandwich with salad and chips" loading="lazy"></figure>
-      <figure><img src="images/home-7-desserts.jpg" alt="Fruit tart, chocolate cake, cheesecake and macarons" loading="lazy"></figure>
-    </div>
-    <figure class="shop"><img src="images/home-8-shop.jpg" alt="The Morning Cafe shop: welcome wall, seating and the order counter" loading="lazy"></figure>
-    <div class="gallery-cta"><p>Come in, grab a seat and stay a while.</p><a class="btn ghost" href="#locations">Find an Outlet</a></div>
-  </div>
-</section>
-
-<section class="about band" id="about">
-  <div class="wrap">
-    <div class="about-photo logo-card"><img src="images/morning-cafe-logo.svg" alt="Morning Cafe logo" loading="lazy"></div>
-    <div class="about-copy">
-      <p class="eyebrow">About Us</p>
-      <h2>A cafe that feels familiar from the first visit</h2>
-      <p>Morning Cafe was created with one simple idea: a good neighbourhood cafe should feel familiar, comfortable and easy to enjoy. We serve straightforward food and drinks made for everyday life, whether you are starting your morning, meeting a friend, taking a lunch break or enjoying a quiet moment on your own.</p>
-      <p>With three convenient outlets, Morning Cafe aims to be the kind of place you are always happy to return to.</p>
-      <div class="facts">
-        <div class="fact"><b>3</b><span>neighbourhood outlets</span></div>
-        <div class="fact"><b>30</b><span>items on the menu</span></div>
-        <div class="fact"><b>7:30am</b><span>earliest opening</span></div>
+  <section class="band section" aria-labelledby="today-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">At the counter</p>
+        <h2 id="today-h">Something for every part of the day</h2>
+        <p class="lead">From the first latte of the morning to a slice of something sweet in the afternoon.</p>
+      </div>
+      <div class="gallery">
+        <figure class="g-main"><img src="img/coffee-and-drinks.jpg" alt="Lattes, cappuccinos, iced drinks and desserts on a cafe table" loading="lazy"><figcaption>Coffee &amp; cool drinks</figcaption></figure>
+        <figure><img src="img/all-day-noodles.jpg" alt="Bowl of chicken noodles with vegetables" loading="lazy"><figcaption>Hearty all-day plates</figcaption></figure>
+        <figure><img src="img/cat-breakfast.jpg" alt="Breakfast plate with eggs, toast and salad beside a latte" loading="lazy"><figcaption>Breakfast</figcaption></figure>
+        <figure><img src="img/sandwich.jpg" alt="Close-up of a toasted sandwich next to a latte" loading="lazy" style="object-position:center 40%"><figcaption>Toasted sandwiches</figcaption></figure>
+        <figure><img src="img/cat-dessert.jpg" alt="Fruit tart, chocolate cake and cheesecake" loading="lazy"><figcaption>Desserts</figcaption></figure>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="menu" aria-labelledby="menu-h">
-  <div class="wrap menu-intro">
-    <p class="eyebrow">Our Menu</p>
-    <h2 id="menu-h">Simple, comforting food and drinks</h2>
-    <p>Five categories, six favourites in each. All prices in Singapore dollars.</p>
-  </div>
-  <nav class="chips" aria-label="Menu categories"><div class="wrap"><a class="chip" href="#coffee">Coffee</a><a class="chip" href="#non-coffee">Non-Coffee</a><a class="chip" href="#breakfast">Breakfast</a><a class="chip" href="#all-day-meal">All-Day Meal</a><a class="chip" href="#dessert">Dessert</a></div></nav>
-  <div class="wrap cats"><div class="pricelist"><table class="prices"><caption class="vh">Morning Cafe price list</caption><thead><tr><th scope="col">Item</th><th scope="col" class="desc-col">Description</th><th scope="col" class="p-col">Price</th></tr></thead><tbody id="coffee"><tr class="group"><th colspan="3" scope="colgroup"><span class="gname">Coffee</span><span class="gblurb">Freshly pulled espresso, poured the way you like it.</span></th></tr><tr><th scope="row"><span class="iname">Signature Latte</span><span class="idesc m">Smooth espresso with fresh milk and a light layer of foam.</span></th><td class="desc-col">Smooth espresso with fresh milk and a light layer of foam.</td><td class="p-col">$4.80</td></tr><tr><th scope="row"><span class="iname">Flat White</span><span class="idesc m">Double espresso with velvety steamed milk for a stronger coffee taste.</span></th><td class="desc-col">Double espresso with velvety steamed milk for a stronger coffee taste.</td><td class="p-col">$4.50</td></tr><tr><th scope="row"><span class="iname">Cappuccino</span><span class="idesc m">Espresso with steamed milk and a generous layer of milk foam.</span></th><td class="desc-col">Espresso with steamed milk and a generous layer of milk foam.</td><td class="p-col">$4.50</td></tr><tr><th scope="row"><span class="iname">Americano</span><span class="idesc m">Espresso topped with hot water for a clean, full-bodied cup.</span></th><td class="desc-col">Espresso topped with hot water for a clean, full-bodied cup.</td><td class="p-col">$3.80</td></tr><tr><th scope="row"><span class="iname">Mocha</span><span class="idesc m">Espresso, chocolate and fresh milk topped with light foam.</span></th><td class="desc-col">Espresso, chocolate and fresh milk topped with light foam.</td><td class="p-col">$5.20</td></tr><tr><th scope="row"><span class="iname">Iced Kopi Latte</span><span class="idesc m">A local-inspired iced coffee with espresso, milk and a touch of sweetness.</span></th><td class="desc-col">A local-inspired iced coffee with espresso, milk and a touch of sweetness.</td><td class="p-col">$4.90</td></tr></tbody><tbody id="non-coffee"><tr class="group"><th colspan="3" scope="colgroup"><span class="gname">Non-Coffee</span><span class="gblurb">Cool, comforting drinks for when you&#x27;d rather skip the caffeine.</span></th></tr><tr><th scope="row"><span class="iname">Honey Lemon Cooler</span><span class="idesc m">Fresh lemon and honey served chilled for a bright, refreshing drink.</span></th><td class="desc-col">Fresh lemon and honey served chilled for a bright, refreshing drink.</td><td class="p-col">$4.50</td></tr><tr><th scope="row"><span class="iname">Matcha Latte</span><span class="idesc m">Smooth Japanese-style matcha blended with fresh milk.</span></th><td class="desc-col">Smooth Japanese-style matcha blended with fresh milk.</td><td class="p-col">$5.20</td></tr><tr><th scope="row"><span class="iname">Chocolate Milk</span><span class="idesc m">Rich cocoa blended with fresh milk, served hot or iced.</span></th><td class="desc-col">Rich cocoa blended with fresh milk, served hot or iced.</td><td class="p-col">$4.80</td></tr><tr><th scope="row"><span class="iname">Peach Iced Tea</span><span class="idesc m">Light black tea with peach flavour, served over ice.</span></th><td class="desc-col">Light black tea with peach flavour, served over ice.</td><td class="p-col">$4.20</td></tr><tr><th scope="row"><span class="iname">Fresh Lemon Tea</span><span class="idesc m">Brewed tea with fresh lemon for a simple citrus finish.</span></th><td class="desc-col">Brewed tea with fresh lemon for a simple citrus finish.</td><td class="p-col">$4.20</td></tr><tr><th scope="row"><span class="iname">Strawberry Milk</span><span class="idesc m">Creamy chilled milk blended with strawberry flavour.</span></th><td class="desc-col">Creamy chilled milk blended with strawberry flavour.</td><td class="p-col">$4.80</td></tr></tbody><tbody id="breakfast"><tr class="group"><th colspan="3" scope="colgroup"><span class="gname">Breakfast</span><span class="gblurb">Easy, filling starts to the day.</span></th></tr><tr><th scope="row"><span class="iname">Kaya Butter Toast Set</span><span class="idesc m">Crisp kaya butter toast with two soft-boiled eggs and hot coffee or tea.</span></th><td class="desc-col">Crisp kaya butter toast with two soft-boiled eggs and hot coffee or tea.</td><td class="p-col">$6.90</td></tr><tr><th scope="row"><span class="iname">Scrambled Egg Croissant</span><span class="idesc m">Buttery croissant filled with soft scrambled eggs.</span></th><td class="desc-col">Buttery croissant filled with soft scrambled eggs.</td><td class="p-col">$7.50</td></tr><tr><th scope="row"><span class="iname">Ham &amp; Cheese Toastie</span><span class="idesc m">Toasted bread with sliced ham and melted cheese.</span></th><td class="desc-col">Toasted bread with sliced ham and melted cheese.</td><td class="p-col">$7.90</td></tr><tr><th scope="row"><span class="iname">Peanut Butter Banana Toast</span><span class="idesc m">Toast with peanut butter, sliced banana and a light honey drizzle.</span></th><td class="desc-col">Toast with peanut butter, sliced banana and a light honey drizzle.</td><td class="p-col">$6.50</td></tr><tr><th scope="row"><span class="iname">Breakfast Egg Muffin</span><span class="idesc m">English muffin with egg, cheese and chicken ham.</span></th><td class="desc-col">English muffin with egg, cheese and chicken ham.</td><td class="p-col">$7.20</td></tr><tr><th scope="row"><span class="iname">Granola Yoghurt Bowl</span><span class="idesc m">Creamy yoghurt with crunchy granola and seasonal fruit.</span></th><td class="desc-col">Creamy yoghurt with crunchy granola and seasonal fruit.</td><td class="p-col">$6.90</td></tr></tbody><tbody id="all-day-meal"><tr class="group"><th colspan="3" scope="colgroup"><span class="gname">All-Day Meal</span><span class="gblurb">Proper lunches and dinners, served whenever you drop by.</span></th></tr><tr><th scope="row"><span class="iname">Grilled Chicken Sourdough</span><span class="idesc m">Grilled chicken, lettuce, tomato and house dressing in toasted sourdough.</span></th><td class="desc-col">Grilled chicken, lettuce, tomato and house dressing in toasted sourdough.</td><td class="p-col">$10.90</td></tr><tr><th scope="row"><span class="iname">Tuna Melt Sandwich</span><span class="idesc m">Tuna filling with melted cheese on toasted bread, served with a small salad.</span></th><td class="desc-col">Tuna filling with melted cheese on toasted bread, served with a small salad.</td><td class="p-col">$9.90</td></tr><tr><th scope="row"><span class="iname">Mushroom Aglio Olio</span><span class="idesc m">Spaghetti tossed with garlic, olive oil, chilli and sauteed mushrooms.</span></th><td class="desc-col">Spaghetti tossed with garlic, olive oil, chilli and sauteed mushrooms.</td><td class="p-col">$11.90</td></tr><tr><th scope="row"><span class="iname">Creamy Chicken Pasta</span><span class="idesc m">Pasta with grilled chicken in a mild creamy sauce.</span></th><td class="desc-col">Pasta with grilled chicken in a mild creamy sauce.</td><td class="p-col">$12.90</td></tr><tr><th scope="row"><span class="iname">Chicken Teriyaki Rice Bowl</span><span class="idesc m">Steamed rice topped with teriyaki chicken and simple vegetables.</span></th><td class="desc-col">Steamed rice topped with teriyaki chicken and simple vegetables.</td><td class="p-col">$11.90</td></tr><tr><th scope="row"><span class="iname">Morning Cafe Club Sandwich</span><span class="idesc m">Triple-layer sandwich with chicken, egg, lettuce and tomato, served with fries.</span></th><td class="desc-col">Triple-layer sandwich with chicken, egg, lettuce and tomato, served with fries.</td><td class="p-col">$12.50</td></tr></tbody><tbody id="dessert"><tr class="group"><th colspan="3" scope="colgroup"><span class="gname">Dessert</span><span class="gblurb">A little something sweet to go with your coffee.</span></th></tr><tr><th scope="row"><span class="iname">Burnt Cheesecake Slice</span><span class="idesc m">Creamy burnt cheesecake with a caramelised top and soft centre.</span></th><td class="desc-col">Creamy burnt cheesecake with a caramelised top and soft centre.</td><td class="p-col">$6.50</td></tr><tr><th scope="row"><span class="iname">Chocolate Brownie</span><span class="idesc m">Rich chocolate brownie with a soft centre and slightly crisp top.</span></th><td class="desc-col">Rich chocolate brownie with a soft centre and slightly crisp top.</td><td class="p-col">$5.50</td></tr><tr><th scope="row"><span class="iname">Banana Walnut Cake</span><span class="idesc m">Moist banana cake with walnuts and a light cinnamon aroma.</span></th><td class="desc-col">Moist banana cake with walnuts and a light cinnamon aroma.</td><td class="p-col">$5.80</td></tr><tr><th scope="row"><span class="iname">Tiramisu Cup</span><span class="idesc m">Coffee-soaked sponge layered with smooth mascarpone cream.</span></th><td class="desc-col">Coffee-soaked sponge layered with smooth mascarpone cream.</td><td class="p-col">$6.80</td></tr><tr><th scope="row"><span class="iname">Lemon Tart</span><span class="idesc m">Buttery tart shell filled with bright, tangy lemon curd.</span></th><td class="desc-col">Buttery tart shell filled with bright, tangy lemon curd.</td><td class="p-col">$6.20</td></tr><tr><th scope="row"><span class="iname">Vanilla Ice Cream Waffle</span><span class="idesc m">Warm waffle served with vanilla ice cream and a light chocolate drizzle.</span></th><td class="desc-col">Warm waffle served with vanilla ice cream and a light chocolate drizzle.</td><td class="p-col">$8.90</td></tr></tbody></table></div></div>
-</section>
-
-<section class="locs band" id="locations">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Locations</p>
-      <h2>Find a Morning Cafe near you</h2>
-      <p>Three outlets, each with the same full menu and the same friendly welcome.</p>
-    </div>
-    <div class="outlets"><article class="outlet"><p class="eyebrow">Outlet</p><h3>Morning Cafe – Tiong Bahru</h3><p class="addr">21 Cosy Lane, Tiong Bahru, Singapore 000001</p><table class="hours"><caption>Opening hours</caption><tr><th scope='row'>Mon – Fri</th><td>7:30am – 8:00pm</td></tr><tr><th scope='row'>Sat, Sun &amp; PH</th><td>8:00am – 9:00pm</td></tr></table></article><article class="outlet"><p class="eyebrow">Outlet</p><h3>Morning Cafe – Bishan</h3><p class="addr">8 Neighbourhood Walk, Bishan, Singapore 000002</p><table class="hours"><caption>Opening hours</caption><tr><th scope='row'>Daily</th><td>8:00am – 9:00pm</td></tr></table></article><article class="outlet"><p class="eyebrow">Outlet</p><h3>Morning Cafe – Tampines</h3><p class="addr">35 Morning Street, Tampines, Singapore 000003</p><table class="hours"><caption>Opening hours</caption><tr><th scope='row'>Mon – Fri</th><td>7:30am – 9:00pm</td></tr><tr><th scope='row'>Sat, Sun &amp; PH</th><td>8:00am – 9:30pm</td></tr></table></article></div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="contact-info">
-      <p class="eyebrow">Contact Us</p>
-      <h2>Say hello</h2>
-      <p>Have a question, feedback or a group enquiry? Send us a message and our team will get back to you as soon as possible.</p>
-      <ul class="ways">
-        <li><span><span class="k">Email</span><span class="v">hello@morningcafe.example</span></span><button class="copy" type="button" data-copy="hello@morningcafe.example">Copy</button></li>
-        <li><span><span class="k">Phone</span><span class="v">+65 6000 1234</span></span><button class="copy" type="button" data-copy="+65 6000 1234">Copy</button></li>
-        <li><span><span class="k">Instagram</span><span class="v">@morningcafe.sg</span></span></li>
-        <li><span><span class="k">Facebook</span><span class="v">Morning Cafe Singapore</span></span></li>
-      </ul>
-    </div>
-    <form id="contact-form" novalidate>
-      <h3>Send us a message</h3>
-      <div class="row2">
-        <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required></label>
-        <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="wrap about-grid">
+      <figure class="about-photo">
+        <img src="img/shop.jpg" alt="Inside a Morning Cafe outlet with warm lighting, tables and a welcome board" loading="lazy" width="1400" height="933">
+      </figure>
+      <div class="about-copy">
+        <p class="eyebrow">About Us</p>
+        <h2>A cafe that feels familiar from the first visit</h2>
+        <p class="body">Morning Cafe was created with one simple idea: a good neighbourhood cafe should feel familiar, comfortable and easy to enjoy. We serve straightforward food and drinks made for everyday life, whether you are starting your morning, meeting a friend, taking a lunch break or enjoying a quiet moment on your own. With three convenient outlets, Morning Cafe aims to be the kind of place you are always happy to return to.</p>
+        <div class="facts">
+          <div class="fact"><strong>3</strong><span>neighbourhood outlets</span></div>
+          <div class="fact"><strong>30</strong><span>items on the menu</span></div>
+          <div class="fact"><strong>7:30am</strong><span>earliest weekday opening</span></div>
+        </div>
       </div>
-      <label for="f-topic">Topic
-        <select id="f-topic" name="topic"><option>General question</option><option>Feedback</option><option>Group enquiry</option></select>
-      </label>
-      <label for="f-msg">Message<textarea id="f-msg" name="message" required></textarea></label>
-      <p class="notice" id="form-note" role="status" hidden></p>
-      <button class="btn primary" type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section menu-sec" aria-labelledby="menu-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our Menu</p>
+        <h2 id="menu-h">Simple, comforting food and drinks</h2>
+        <p class="lead">Five categories, six favourites in each.</p>
+      </div>
+    </div>
+    <nav class="cat-nav" aria-label="Menu categories">
+      <div class="wrap">
+        <ul>
+          <li><a href="#coffee">Coffee</a></li>
+          <li><a href="#non-coffee">Non-Coffee</a></li>
+          <li><a href="#breakfast">Breakfast</a></li>
+          <li><a href="#all-day-meal">All-Day Meal</a></li>
+          <li><a href="#dessert">Dessert</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="wrap">
+      <div class="cats">
+      <article class="cat" id="coffee" aria-labelledby="coffee-h">
+        <figure class="cat-photo"><img src="img/cat-coffee.jpg" alt="Lattes and cappuccinos with latte art at Morning Cafe" loading="lazy" width="900" height="675"></figure>
+        <div class="cat-body">
+          <p class="cat-count">1 of 5 · 6 items</p>
+          <h3 id="coffee-h">Coffee</h3>
+          <p class="cat-blurb">Freshly pulled espresso, poured the way you like it.</p>
+          <ul class="items">
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-cup"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Signature Latte</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.80</span></div>
+              <p>Smooth espresso with fresh milk and a light layer of foam.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-cup"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Flat White</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.50</span></div>
+              <p>Double espresso with velvety steamed milk for a stronger coffee taste.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-cup"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Cappuccino</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.50</span></div>
+              <p>Espresso with steamed milk and a generous layer of milk foam.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-cup"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Americano</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>3.80</span></div>
+              <p>Espresso topped with hot water for a clean, full-bodied cup.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-cup"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Mocha</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>5.20</span></div>
+              <p>Espresso, chocolate and fresh milk topped with light foam.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-iced"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Iced Kopi Latte</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.90</span></div>
+              <p>A local-inspired iced coffee with espresso, milk and a touch of sweetness.</p>
+            </div>
+          </li>
+          </ul>
+        </div>
+      </article>
+      <article class="cat flip" id="non-coffee" aria-labelledby="non-coffee-h">
+        <figure class="cat-photo"><img src="img/cat-noncoffee.jpg" alt="Matcha, chocolate and strawberry drinks" loading="lazy" width="900" height="675"></figure>
+        <div class="cat-body">
+          <p class="cat-count">2 of 5 · 6 items</p>
+          <h3 id="non-coffee-h">Non-Coffee</h3>
+          <p class="cat-blurb">Cool, comforting drinks for when you&#x27;d rather skip the caffeine.</p>
+          <ul class="items">
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-iced"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Honey Lemon Cooler</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.50</span></div>
+              <p>Fresh lemon and honey served chilled for a bright, refreshing drink.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-glass"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Matcha Latte</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>5.20</span></div>
+              <p>Smooth Japanese-style matcha blended with fresh milk.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-glass"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Chocolate Milk</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.80</span></div>
+              <p>Rich cocoa blended with fresh milk, served hot or iced.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-iced"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Peach Iced Tea</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.20</span></div>
+              <p>Light black tea with peach flavour, served over ice.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-tea"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Fresh Lemon Tea</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.20</span></div>
+              <p>Brewed tea with fresh lemon for a simple citrus finish.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-glass"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Strawberry Milk</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>4.80</span></div>
+              <p>Creamy chilled milk blended with strawberry flavour.</p>
+            </div>
+          </li>
+          </ul>
+        </div>
+      </article>
+      <article class="cat" id="breakfast" aria-labelledby="breakfast-h">
+        <figure class="cat-photo"><img src="img/cat-breakfast.jpg" alt="Breakfast plate with eggs, toast and a latte" loading="lazy" width="900" height="675"></figure>
+        <div class="cat-body">
+          <p class="cat-count">3 of 5 · 6 items</p>
+          <h3 id="breakfast-h">Breakfast</h3>
+          <p class="cat-blurb">Easy, filling starts to the day.</p>
+          <ul class="items">
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-toast"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Kaya Butter Toast Set</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>6.90</span></div>
+              <p>Crisp kaya butter toast with two soft-boiled eggs and hot coffee or tea.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-croissant"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Scrambled Egg Croissant</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>7.50</span></div>
+              <p>Buttery croissant filled with soft scrambled eggs.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-sandwich"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Ham &amp; Cheese Toastie</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>7.90</span></div>
+              <p>Toasted bread with sliced ham and melted cheese.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-toast"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Peanut Butter Banana Toast</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>6.50</span></div>
+              <p>Toast with peanut butter, sliced banana and a light honey drizzle.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-muffin"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Breakfast Egg Muffin</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>7.20</span></div>
+              <p>English muffin with egg, cheese and chicken ham.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-bowl"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Granola Yoghurt Bowl</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>6.90</span></div>
+              <p>Creamy yoghurt with crunchy granola and seasonal fruit.</p>
+            </div>
+          </li>
+          </ul>
+        </div>
+      </article>
+      <article class="cat flip" id="all-day-meal" aria-labelledby="all-day-meal-h">
+        <figure class="cat-photo"><img src="img/cat-allday.jpg" alt="Toasted tuna sandwich with salad and chips" loading="lazy" width="900" height="675"></figure>
+        <div class="cat-body">
+          <p class="cat-count">4 of 5 · 6 items</p>
+          <h3 id="all-day-meal-h">All-Day Meal</h3>
+          <p class="cat-blurb">Proper lunches and dinners, served whenever you drop by.</p>
+          <ul class="items">
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-sandwich"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Grilled Chicken Sourdough</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>10.90</span></div>
+              <p>Grilled chicken, lettuce, tomato and house dressing in toasted sourdough.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-sandwich"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Tuna Melt Sandwich</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>9.90</span></div>
+              <p>Tuna filling with melted cheese on toasted bread, served with a small salad.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-pasta"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Mushroom Aglio Olio</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>11.90</span></div>
+              <p>Spaghetti tossed with garlic, olive oil, chilli and sauteed mushrooms.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-pasta"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Creamy Chicken Pasta</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>12.90</span></div>
+              <p>Pasta with grilled chicken in a mild creamy sauce.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-bowl"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Chicken Teriyaki Rice Bowl</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>11.90</span></div>
+              <p>Steamed rice topped with teriyaki chicken and simple vegetables.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-sandwich"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Morning Cafe Club Sandwich</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>12.50</span></div>
+              <p>Triple-layer sandwich with chicken, egg, lettuce and tomato, served with fries.</p>
+            </div>
+          </li>
+          </ul>
+        </div>
+      </article>
+      <article class="cat" id="dessert" aria-labelledby="dessert-h">
+        <figure class="cat-photo"><img src="img/cat-dessert.jpg" alt="Fruit tart, chocolate cake and cheesecake" loading="lazy" width="900" height="675"></figure>
+        <div class="cat-body">
+          <p class="cat-count">5 of 5 · 6 items</p>
+          <h3 id="dessert-h">Dessert</h3>
+          <p class="cat-blurb">A little something sweet to go with your coffee.</p>
+          <ul class="items">
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-cake"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Burnt Cheesecake Slice</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>6.50</span></div>
+              <p>Creamy burnt cheesecake with a caramelised top and soft centre.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-brownie"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Chocolate Brownie</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>5.50</span></div>
+              <p>Rich chocolate brownie with a soft centre and slightly crisp top.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-cake"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Banana Walnut Cake</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>5.80</span></div>
+              <p>Moist banana cake with walnuts and a light cinnamon aroma.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-dessertcup"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Tiramisu Cup</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>6.80</span></div>
+              <p>Coffee-soaked sponge layered with smooth mascarpone cream.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-tart"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Lemon Tart</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>6.20</span></div>
+              <p>Buttery tart shell filled with bright, tangy lemon curd.</p>
+            </div>
+          </li>
+          <li class="item">
+            <svg class="item-icon" aria-hidden="true"><use href="#i-waffle"/></svg>
+            <div class="item-text">
+              <div class="item-head"><h4>Vanilla Ice Cream Waffle</h4><span class="leader" aria-hidden="true"></span><span class="price"><span class="cur">$</span>8.90</span></div>
+              <p>Warm waffle served with vanilla ice cream and a light chocolate drizzle.</p>
+            </div>
+          </li>
+          </ul>
+        </div>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section id="locations" class="section" aria-labelledby="loc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Locations</p>
+        <h2 id="loc-h">Find a Morning Cafe near you</h2>
+        <p class="lead">Three neighbourhood outlets in Tiong Bahru, Bishan and Tampines.</p>
+      </div>
+      <div class="outlets">
+        <article class="outlet" data-wk="07:30-20:00" data-we="08:00-21:00">
+          <div class="outlet-top">
+            <p class="eyebrow">Outlet</p>
+            <span class="status" hidden></span>
+          </div>
+          <h3>Morning Cafe – Tiong Bahru</h3>
+          <p class="addr">21 Cosy Lane, Tiong Bahru, Singapore 000001</p>
+          <p class="eyebrow small">Opening hours</p>
+          <dl class="hours"><div class="hrow"><dt>Mon – Fri</dt><dd>7:30am – 8:00pm</dd></div><div class="hrow"><dt>Sat, Sun & PH</dt><dd>8:00am – 9:00pm</dd></div></dl>
+        </article>
+        <article class="outlet" data-wk="08:00-21:00" data-we="08:00-21:00">
+          <div class="outlet-top">
+            <p class="eyebrow">Outlet</p>
+            <span class="status" hidden></span>
+          </div>
+          <h3>Morning Cafe – Bishan</h3>
+          <p class="addr">8 Neighbourhood Walk, Bishan, Singapore 000002</p>
+          <p class="eyebrow small">Opening hours</p>
+          <dl class="hours"><div class="hrow"><dt>Daily</dt><dd>8:00am – 9:00pm</dd></div></dl>
+        </article>
+        <article class="outlet" data-wk="07:30-21:00" data-we="08:00-21:30">
+          <div class="outlet-top">
+            <p class="eyebrow">Outlet</p>
+            <span class="status" hidden></span>
+          </div>
+          <h3>Morning Cafe – Tampines</h3>
+          <p class="addr">35 Morning Street, Tampines, Singapore 000003</p>
+          <p class="eyebrow small">Opening hours</p>
+          <dl class="hours"><div class="hrow"><dt>Mon – Fri</dt><dd>7:30am – 9:00pm</dd></div><div class="hrow"><dt>Sat, Sun & PH</dt><dd>8:00am – 9:30pm</dd></div></dl>
+        </article>
+      </div>
+      <p class="loc-foot">PH = public holidays. The open / closed tag uses Singapore time and doesn't account for public holidays.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section menu-sec" aria-labelledby="contact-h">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <div class="sec-head" style="margin-bottom:8px">
+          <p class="eyebrow">Contact Us</p>
+          <h2 id="contact-h">Say hello</h2>
+          <p class="lead">Have a question, feedback or a group enquiry? Send us a message and our team will get back to you as soon as possible.</p>
+        </div>
+        <div class="cline"><svg aria-hidden="true"><use href="#i-mail"/></svg><div><div class="lbl">General enquiries</div><div class="val" id="v-email">hello@morningcafe.example</div></div><button class="copy-btn" type="button" data-copy="v-email">Copy</button></div>
+        <div class="cline"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><div class="lbl">Phone</div><div class="val" id="v-phone">+65 6000 1234</div></div><button class="copy-btn" type="button" data-copy="v-phone">Copy</button></div>
+        <div class="cline"><svg aria-hidden="true"><use href="#i-insta"/></svg><div><div class="lbl">Instagram</div><div class="val" id="v-ig">@morningcafe.sg</div></div><button class="copy-btn" type="button" data-copy="v-ig">Copy</button></div>
+        <div class="cline"><svg aria-hidden="true"><use href="#i-fb"/></svg><div><div class="lbl">Facebook</div><div class="val" id="v-fb">Morning Cafe Singapore</div></div><button class="copy-btn" type="button" data-copy="v-fb">Copy</button></div>
+      </div>
+
+      <form class="card" id="contactForm" novalidate>
+        <h3 style="font-size:1.6rem;color:var(--coffee)">Send us a message</h3>
+        <div class="frow">
+          <div class="field"><label for="cf-name">Your name</label><input id="cf-name" name="name" autocomplete="name" required><span class="err" hidden>Please enter your name.</span></div>
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required><span class="err" hidden>Please enter a valid email address.</span></div>
+        </div>
+        <div class="field"><label for="cf-topic">What is it about?</label>
+          <select id="cf-topic" name="topic">
+            <option>General question</option><option>Feedback</option><option>Group enquiry</option>
+          </select></div>
+        <div class="field"><label for="cf-outlet">Outlet (optional)</label>
+          <select id="cf-outlet" name="outlet">
+            <option value="">Any outlet</option><option>Tiong Bahru</option><option>Bishan</option><option>Tampines</option>
+          </select></div>
+        <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" required></textarea><span class="err" hidden>Please write a short message.</span></div>
+        <div><button class="btn btn-primary" type="submit">Send message</button></div>
+        <p class="form-done" id="formDone" role="status" hidden></p>
+      </form>
+    </div>
+  </section>
 </main>
 
-<footer>
+<footer class="site-foot">
   <div class="wrap">
-    <div style="display:grid;gap:12px"><span class="lockup"><svg class="mark" viewBox="140 64 232 232" aria-hidden="true"><circle cx="256" cy="168" r="64" fill="var(--terra)"/><g stroke="var(--terra)" stroke-width="10" stroke-linecap="round"><line x1="256" y1="74" x2="256" y2="92"/><line x1="178" y1="104" x2="191" y2="117"/><line x1="334" y1="104" x2="321" y2="117"/><line x1="150" y1="140" x2="166" y2="147"/><line x1="362" y1="140" x2="346" y2="147"/></g><path d="M232 150 c-12 -14 12 -24 0 -40 M268 150 c-12 -14 12 -24 0 -40" fill="none" stroke="var(--steam)" stroke-width="9" stroke-linecap="round"/><path d="M168 176 H344 V196 C344 240 310 268 256 268 C202 268 168 240 168 196 Z" fill="var(--cup)"/><path d="M340 192 C380 186 384 236 336 238" fill="none" stroke="var(--cup)" stroke-width="13" stroke-linecap="round"/><rect x="150" y="276" width="212" height="13" rx="6.5" fill="var(--green)"/></svg><span class="word">Morning<small>Cafe</small></span></span><p>Good Food. Good Coffee. Good Neighbours.</p></div>
-    <div><h4>Visit</h4><ul><li>Tiong Bahru</li><li>Bishan</li><li>Tampines</li><li><a href="#locations">Opening hours</a></li></ul></div>
-    <div><h4>Contact</h4><ul><li>hello@morningcafe.example</li><li>+65 6000 1234</li><li>Instagram @morningcafe.sg</li><li>Facebook: Morning Cafe Singapore</li></ul></div>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="img/morning-cafe-logo.png" alt="Morning Cafe logo" width="96" height="96">
+        <div><strong>Morning Cafe</strong><span class="muted">Good Food. Good Coffee. Good Neighbours.</span></div>
+      </div>
+      <div><h4>Visit</h4><ul><li><a href="#locations">Tiong Bahru</a></li><li><a href="#locations">Bishan</a></li><li><a href="#locations">Tampines</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>hello@morningcafe.example</li><li>+65 6000 1234</li></ul></div>
+      <div><h4>Follow</h4><ul><li>Instagram: @morningcafe.sg</li><li>Facebook: Morning Cafe Singapore</li></ul></div>
+    </div>
+    <div class="copyright"><span>© 2026 Morning Cafe. All rights reserved.</span><a href="#home">Back to top ↑</a></div>
   </div>
-  <div class="legal"><div class="wrap"><span>© 2026 Morning Cafe. All rights reserved.</span><span>Prices include GST.</span></div></div>
 </footer>
 
 <script>
 (function(){
-  var btn=document.getElementById('menu-btn'), nav=document.getElementById('site-nav');
-  var mq=window.matchMedia('(max-width:820px)');
-  function sync(){ if(mq.matches){ nav.hidden=btn.getAttribute('aria-expanded')!=='true'; } else { nav.hidden=false; } }
-  btn.addEventListener('click',function(){ btn.setAttribute('aria-expanded', btn.getAttribute('aria-expanded')==='true'?'false':'true'); sync(); });
-  nav.addEventListener('click',function(e){ if(e.target.closest('a') && mq.matches){ btn.setAttribute('aria-expanded','false'); sync(); } });
-  (mq.addEventListener?mq.addEventListener('change',sync):mq.addListener(sync)); sync();
+  // Mobile nav
+  var toggle=document.getElementById('menuToggle'), nav=document.getElementById('siteNav');
+  toggle.addEventListener('click',function(){
+    var open=nav.classList.toggle('open'); toggle.setAttribute('aria-expanded',open);
+  });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');} });
 
-  document.querySelectorAll('.copy').forEach(function(b){
+  // Active section highlighting
+  function spy(links, ids, rootMargin){
+    if(!('IntersectionObserver' in window)) return;
+    var map={}; links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(a){a.removeAttribute('aria-current');});
+          var a=map[en.target.id]; if(a){a.setAttribute('aria-current','true');
+            if(a.closest('.cat-nav')){var ul=a.closest('ul'); ul.scrollTo({left:a.offsetLeft-16,behavior:'smooth'});}}
+        }
+      });
+    },{rootMargin:rootMargin});
+    ids.forEach(function(id){var el=document.getElementById(id); if(el) io.observe(el);});
+  }
+  spy([].slice.call(nav.querySelectorAll('a')),['home','about','menu','locations','contact'],'-45% 0px -50% 0px');
+  spy([].slice.call(document.querySelectorAll('.cat-nav a')),['coffee','non-coffee','breakfast','all-day-meal','dessert'],'-35% 0px -60% 0px');
+
+  // Open / closed status in Singapore time
+  try{
+    var parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Singapore',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var get=function(t){return (parts.find(function(p){return p.type===t;})||{}).value;};
+    var wd=get('weekday'), mins=parseInt(get('hour'),10)%24*60+parseInt(get('minute'),10);
+    var weekend=(wd==='Sat'||wd==='Sun');
+    var toMin=function(s){var x=s.split(':');return +x[0]*60+ +x[1];};
+    document.querySelectorAll('.outlet').forEach(function(o){
+      var r=(weekend?o.dataset.we:o.dataset.wk).split('-'), a=toMin(r[0]), b=toMin(r[1]);
+      var s=o.querySelector('.status'), open=mins>=a&&mins<b;
+      s.textContent=open?'Open now':'Closed now'; s.classList.add(open?'open':'closed'); s.hidden=false;
+    });
+  }catch(e){}
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(function(b){
     b.addEventListener('click',function(){
-      var t=b.dataset.copy, done=function(){ b.textContent='Copied'; setTimeout(function(){b.textContent='Copy'},1600); };
-      var sel=function(){ var r=document.createRange(); r.selectNodeContents(b.parentNode.querySelector('.v')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent='Selected'; setTimeout(function(){b.textContent='Copy'},1600); };
-      try{ navigator.clipboard.writeText(t).then(done,sel); }catch(e){ sel(); }
+      var el=document.getElementById(b.dataset.copy), txt=el.textContent.trim();
+      function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1600);}
+      function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';setTimeout(function(){b.textContent='Copy';},1600);}
+      try{navigator.clipboard.writeText(txt).then(done,fallback);}catch(e){fallback();}
     });
   });
 
-  var chips=[].slice.call(document.querySelectorAll('.chip'));
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ chips.forEach(function(c){ c.classList.toggle('on', c.getAttribute('href')==='#'+e.target.id); }); } }); },{rootMargin:'-45% 0px -50% 0px'});
-    document.querySelectorAll('.cat').forEach(function(s){ io.observe(s); });
-  }
-
-  var form=document.getElementById('contact-form'), note=document.getElementById('form-note');
+  // Contact form (practice site: no backend)
+  var form=document.getElementById('contactForm'), doneEl=document.getElementById('formDone');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var name=form.name.value.trim(), email=form.email.value.trim(), msg=form.message.value.trim();
-    if(!name||!email||!msg){ note.textContent='Please fill in your name, email and message.'; note.hidden=false; return; }
-    if(!/^\S+@\S+\.\S+$/.test(email)){ note.textContent='Please check your email address, for example name@example.com.'; note.hidden=false; return; }
-    note.textContent='Thanks, '+name+'. This form is not connected to an inbox yet, so please also email us at hello@morningcafe.example.';
-    note.hidden=false;
+    var ok=true;
+    [['cf-name',function(v){return v.trim().length>0;}],['cf-email',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());}],['cf-msg',function(v){return v.trim().length>0;}]].forEach(function(f){
+      var el=document.getElementById(f[0]), err=el.parentNode.querySelector('.err'), good=f[1](el.value);
+      err.hidden=good; el.setAttribute('aria-invalid',!good); if(!good&&ok){el.focus();ok=false;}
+    });
+    if(!ok) return;
+    var name=document.getElementById('cf-name').value.trim();
+    doneEl.textContent='Thanks, '+name+'! Your message is ready. This form is not connected to an inbox yet, so please also email it to hello@morningcafe.example.';
+    doneEl.hidden=false;
   });
 })();
 </script>
